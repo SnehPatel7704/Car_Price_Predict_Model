@@ -5,8 +5,6 @@ import numpy as np
 # Load model and metadata
 try:
     model = pkl.load(open('model.pkl', 'rb'))
-    scaler = pkl.load(open('scaler.pkl', 'rb'))
-    model_info = pkl.load(open('model_info.pkl', 'rb'))
 except FileNotFoundError:
     st.error(" Model files not found.")
     st.stop()
