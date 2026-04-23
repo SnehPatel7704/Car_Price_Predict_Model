@@ -17,7 +17,7 @@ d2 = {'Petrol':0, 'Diesel':1, 'CNG':2}
 d3 = {'First Owner':1, 'Second Owner':2, 'Third Owner':3, 'Fourth Owner':4, 'Fifth Owner':5}
 d4 = {'Manual':0, 'Automatic':1}
 
-st.title('🚗 Car Price Prediction')
+st.title('Car Price Prediction')
 
 # Create two columns for inputs
 col1, col2 = st.columns(2)
@@ -42,7 +42,7 @@ val11 = st.number_input('Seats', min_value=2, max_value=8, value=5, step=1)
 car_age = 2024 - val10
 
 # Predict button
-if st.button('🎯 Predict Price', use_container_width=True, type='primary'):
+if st.button(' Predict Price', use_container_width=True, type='primary'):
     try:
         # Prepare input data
         test_data = np.array([[
@@ -68,13 +68,13 @@ if st.button('🎯 Predict Price', use_container_width=True, type='primary'):
         col_res1, col_res2, col_res3 = st.columns(3)
         with col_res1:
             st.metric("Estimated Price", f"₹{predicted_price*100000:,.0f}", f"{predicted_price:.2f} lakhs")
+        with col_res3:
+            st.metric("Car Age", f"{car_age} years", f"Year: {val10}")
         with col_res2:
             lower = predicted_price * 0.90
             upper = predicted_price * 1.10
-            st.metric("Price Range", f"₹{lower*100000:,.0f} - ₹{upper*100000:,.0f}")
-        with col_res3:
-            st.metric("Car Age", f"{car_age} years", f"Year: {val10}")
+            st.metric("Price Range (in Lakhs)", f"₹{lower:,.1f} - ₹{upper:,.1f}")
         
         
     except Exception as e:
-        st.error(f"❌ Error: {str(e)}")
+        st.error(f" Error: {str(e)}")
