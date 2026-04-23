@@ -1,3 +1,5 @@
+from datetime import date
+
 import streamlit as st
 import pickle as pkl
 import numpy as np
@@ -17,6 +19,7 @@ d4 = {'Manual':0, 'Automatic':1}
 
 st.title('Car Price Prediction')
 
+year = date.today().year
 # Create two columns for inputs
 col1, col2 = st.columns(2)
 
@@ -32,12 +35,12 @@ with col2:
     val7 = st.number_input('Engine (cc)', min_value=500, max_value=5000, value=1500, step=50)
     val8 = st.number_input('Max Power (bhp)', min_value=50, max_value=500, value=120, step=5)
     val9 = st.number_input('Torque (Nm)', min_value=100, max_value=500, value=180, step=10)
-    val10 = st.number_input('Manufacturing Year', min_value=2000, max_value=2024, value=2020, step=1)
+    val10 = st.number_input('Manufacturing Year', min_value=2000, max_value=year, value=2020, step=1)
 
 val11 = st.number_input('Seats', min_value=2, max_value=8, value=5, step=1)
 
 # Calculate car age
-car_age = 2024 - val10
+car_age = year - val10
 
 # Predict button
 if st.button(' Predict Price', use_container_width=True, type='primary'):
