@@ -1,3 +1,4 @@
 # Car_Price_Predict_Model
 A model to predict the price of the Car on the basis of other features...
 
+![alt text](./image.png)
